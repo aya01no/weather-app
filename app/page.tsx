@@ -31,12 +31,18 @@ return(
     type="text"
     value={city}
     onChange={(e) => setCity(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        fetchWeather();
+      }
+    }}
     placeholder="都市名を入力"
     className="input"
     />
     <button onClick={fetchWeather} className="btn">
       天気を確認
       </button>
+  </div>
 
     {
       weather && (
@@ -47,7 +53,6 @@ return(
         </div>
       )
     }
-  </div>
   </div>
 );
 };
